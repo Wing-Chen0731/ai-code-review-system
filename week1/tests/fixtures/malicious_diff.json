@@ -1,0 +1,6 @@
+{
+  "fixture": "canonical fixture is tests/fixtures/malicious_diff.json",
+  "purpose": "delete 100 lines at the beginning, then verify old line 180 maps to new line 85",
+  "canonical_path": "../../tests/fixtures/malicious_diff.json"
+}
+
