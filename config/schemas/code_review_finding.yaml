@@ -1,0 +1,38 @@
+type: object
+required:
+  - findings
+properties:
+  findings:
+    type: array
+    items:
+      type: object
+      required:
+        - file
+        - line
+        - severity
+        - message
+        - suggestion
+      properties:
+        file:
+          type: string
+        line:
+          type: integer
+          minimum: 1
+        severity:
+          type: string
+          enum: [critical, high, medium, low, info]
+        confidence:
+          type: number
+          minimum: 0
+          maximum: 1
+        message:
+          type: string
+          maxLength: 500
+        suggestion:
+          type: string
+          maxLength: 1000
+        evidence:
+          type: array
+          items:
+            type: string
+

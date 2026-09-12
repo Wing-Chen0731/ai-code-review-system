@@ -1,0 +1,23 @@
+routes:
+  - task: code_review
+    primary:
+      provider: mock
+      model: mock-model
+      temperature: 0.1
+      max_tokens: 4000
+    fallback: []
+    budget_per_call: 0.5
+    timeout_seconds: 5
+    max_retries: 2
+
+  - task: code_review_fast
+    primary:
+      provider: mock
+      model: mock-model
+      temperature: 0.2
+      max_tokens: 2000
+    fallback: []
+    budget_per_call: 0.05
+    timeout_seconds: 3
+    max_retries: 1
+
