@@ -50,6 +50,16 @@ docker compose up --build
 
 关键环境变量见[`.env.example`](.env.example)，包括 GitHub App 凭据、Webhook secret、模型名称、输入/输出 token 单价、数据库和 Redis 地址。
 
+## 第三节课：代码上下文管道
+
+第三节课的本地实现已经接入：GitHub Webhook/PR 客户端、Diff Hunk 行号映射、Python AST 符号表与调用图、语义分块、离线确定性向量、关键词/向量/混合检索、重排、上下文压缩和文件治理。运行说明见[`docs/lesson3_context_pipeline.md`](docs/lesson3_context_pipeline.md)。
+
+```bash
+py -m pytest -q
+py -m compileall -q packages integrations experiments tests
+py -m experiments.retrieval_comparison
+```
+
 ## 阶段 1 验收方式
 
 ```bash
@@ -68,5 +78,5 @@ python scripts/validate_line_mapping.py tests/fixtures/malicious_diff.json
 - [x] `docs/routing_strategy.md` 置信度分流与流程图
 - [x] `docs/security_whitepaper.md` Prompt Injection 防御墙
 - [x] 至少一次规范 Git Commit
+- [x] 第三节课 Diff/AST/检索增强上下文管道与本地 Mock 集成测试
 - [ ] 阶段 2：真实 GitHub Webhook、队列、LLM Gateway 与 PR 回写
-
